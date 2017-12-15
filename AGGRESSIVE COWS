@@ -1,0 +1,63 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Main {
+	
+	int fun(int a[],int mid,int n,int c)
+	{
+		int cows=1,pos=a[0];
+		for(int i=1;i<n;i++)
+		{
+			if(a[i]-pos>=mid)
+			{
+				pos=a[i];
+				cows++;
+				if(cows==c)
+				{
+					return 1;
+				}
+			}	
+		}
+		return 0;
+	}
+	
+	int binarysearch(int[] a,int n,int c)
+	{
+		int in=0,last=a[n-1],max=-1;
+		while(last>in)
+		{
+			int mid=(in+last)/2;
+			int k=fun(a,mid,n,c);
+			if(k==1)
+			{
+				if(mid>max)
+					max=mid;
+				in=mid+1;
+				
+			}
+			else
+				last=mid;
+		}
+		return max;
+	}
+	
+	public static void main(String[] args)throws java.lang.Exception
+	{
+		Main ag=new Main();
+		int t;
+		Scanner sc = new Scanner(System.in);
+		t=sc.nextInt();
+		while(t-->0)
+		{
+			int n=sc.nextInt();
+			int c=sc.nextInt();
+			int a[]=new int[n];
+			for(int i=0;i<n;i++)
+				a[i]=sc.nextInt();
+			Arrays.sort(a);
+			int k=ag.binarysearch(a,n,c);
+			System.out.println(k);
+		}
+		sc.close();
+	}
+}
