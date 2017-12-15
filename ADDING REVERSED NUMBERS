@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int findrev(int n)
+{
+    int rev=0;
+    int r;
+    while(n>0){
+    r=n%10;
+    rev=rev*10+r;
+    n=n/10;
+    }
+    return rev;
+}
+
+
+int main()
+{
+    int t;
+    cin>>t;
+    int a[t],b[t],i,sum[t];
+    for(i=0;i<t;i++)
+    {
+        cin>>a[i];
+        cin>>b[i];
+    }
+    for(i=0;i<t;i++)
+        sum[i]=0;
+    for(i=0;i<t;i++)
+    {
+        sum[i]=sum[i]+findrev(a[i]);
+        sum[i]=sum[i]+findrev(b[i]);
+        cout<<findrev(sum[i])<<"\n";
+    }
+    return 0;
+}
