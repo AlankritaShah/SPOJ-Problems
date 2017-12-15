@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int t,k,l,i,j;
+    cin>>t;
+    string s[t],o[400];
+    for(i=0;i<t;i++)
+    {
+        cin>>s[i];
+    }
+    for(i=0;i<t;i++)
+    {
+        l=s[i].length();
+        k=0;
+        for(j=0;j<l;j++)
+        {
+            if(s[i][j]!='(')
+            {
+                if(s[i][j]>='a' && s[i][j]<='z')
+                {
+                    cout<<s[i][j];
+                }
+                else if(s[i][j]!=')')
+                {
+                    o[k]=s[i][j];
+                    k++;
+                }
+                else
+                {
+                    k--;
+                    cout<<o[k];
+                }
+            }
+        }
+        cout<<"\n";
+    }
+    return 0;
+}
