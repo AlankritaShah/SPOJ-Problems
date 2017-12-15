@@ -1,0 +1,76 @@
+
+import java.util.Scanner;
+
+class Main {
+	
+	int findgcd(int a, int b)
+	{
+		while(b!=0)
+		{
+			int r=a%b;
+			a=b;
+			b=r;
+		}
+		return a;
+	}
+	
+	int count(int A, int B, int C)
+	{
+		int a=A,b=0,move=1,pour;
+		while(a!=C && b!=C)
+		{
+			pour=Math.min(a, B-b);
+			b=b+pour;
+			a=a-pour;
+			move++;
+			if(b==C || a==C)
+				break;
+			if(b==B)
+			{
+				move++;
+				b=0;
+			}
+			else if(a==0)
+			{
+				move++;
+				a=A;
+			}
+		}
+		return move;
+	}
+	
+	
+	public static void main(String[] args)throws java.lang.Exception
+	{
+		Main pw=new Main();
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t-->0)
+		{
+			int a=sc.nextInt();
+			int b=sc.nextInt();
+			int c=sc.nextInt();
+			int temp;
+			if(a<b)
+			{
+				temp=a;
+				a=b;
+				b=temp;
+			}
+			int gcd=pw.findgcd(a,b);
+			if(c>a)
+				System.out.println(-1);
+		
+			else if(c%gcd!=0)
+				System.out.println(-1);
+			else
+			{
+				System.out.println(Math.min(pw.count(a,b,c), pw.count(b,a,c)));
+			}
+				
+		}
+		sc.close();
+		
+	}
+
+}
