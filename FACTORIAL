@@ -1,0 +1,28 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+    int t,k,i,sum,m;
+    cin>>t;
+    int n[t];
+    for(i=0;i<t;i++)
+    {
+        cin>>n[i];
+    }
+    for(i=0;i<t;i++)
+    {
+        sum=0;
+        k=1;
+         while(pow(5,k)<=n[i])
+        {
+            m=n[i]/pow(5,k);
+            sum=sum+m;
+            k++;
+        }
+
+        cout<<sum<<"\n";
+    }
+    return 0;
+}
