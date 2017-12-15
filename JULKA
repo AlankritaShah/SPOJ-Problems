@@ -1,0 +1,23 @@
+import java.lang.*;
+import java.math.BigInteger;
+import java.util.Scanner;
+
+class Main
+{
+	public static void main(String[] args)throws java.lang.Exception
+	{
+		Scanner sc=new Scanner(System.in);
+		int t=10;
+		while(t-->0)
+		{
+			BigInteger total=sc.nextBigInteger();
+			BigInteger more=sc.nextBigInteger();
+			BigInteger num = new BigInteger("2");
+			BigInteger k=(total.add(more)).divide(num);
+			BigInteger n=k.subtract(more);
+			System.out.println(k);
+			System.out.println(n);
+		}
+		sc.close();
+	}
+}
