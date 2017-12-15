@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int i=0,t,sz,j;
+    int *oldlist=new int[5000];
+    do{
+    cin>>t;
+    i++;
+    int *newlist = new int[i];
+    for(j=0;j<i-1;j++)
+    {
+        newlist[j]=oldlist[j];
+    }
+    newlist[i-1]=t;
+   // i++;
+   // oldlist[0]=t;
+    for(int a=0;a<=i;a++)
+    oldlist[a]=newlist[a];
+
+    delete[] newlist;
+//    list[i]=t;
+//    i++;
+    sz=i;
+    }
+    while(t!=42);
+    for(i=0;i<sz-1;i++)
+    {
+        cout<<oldlist[i]<<"\n";
+    }
+    return 0;
+}
